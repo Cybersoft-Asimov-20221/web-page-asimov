@@ -1,0 +1,178 @@
+@use "sass:math";
+$base-font-size: 14;
+@function rem($size) {
+  @return #{math.div($size, $base-font-size)}rem;
+}
+
+@mixin size($size, $height: 0) {
+  font-size: rem($size);
+
+  @if $height>0 {
+    line-height: #{math.div($height, $size)}em;
+  }
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  h1 {
+    @include size(35, 40);
+    font-weight: 500;
+  }
+  margin-bottom: rem(30);
+}
+
+.other-title {
+  h1 {
+    @include size(32, 35);
+    font-weight: 500;
+  }
+  margin-bottom: rem(30);
+}
+
+// .card {
+//   margin-bottom: rem(40);
+// }
+
+.card-top {
+  padding: rem(20) 0;
+  background: #3f51b5;
+}
+
+.card-title {
+  color: #fff;
+  @include size(28, 30);
+}
+
+.aside-content {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: rem(20);
+  p {
+    @include size(14, 20);
+    font-weight: 600;
+    margin-right: rem(20);
+  }
+}
+
+.bar {
+  height: rem(25);
+  border-radius: 16px;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  margin-top: rem(20);
+  width: 100%;
+}
+
+.image {
+  width: rem(120);
+  height: rem(120);
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  margin: 0 rem(40) 0 rem(20);
+}
+
+.aside-title {
+  h3 {
+    @include size(20, 22);
+    font-weight: 400;
+  }
+  margin-bottom: rem(10);
+}
+
+.mat-card > :last-child:not(.mat-card-footer),
+.mat-card-content > :last-child:not(.mat-card-footer) {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.divider {
+  margin: rem(50) 0;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  svg {
+    width: rem(40);
+    height: rem(40);
+  }
+}
+.card-left-title {
+  display: flex;
+  align-items: center;
+}
+
+.card-left-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: rem(15);
+  h3 {
+    @include size(18, 22);
+    margin-bottom: rem(10);
+  }
+  p {
+    @include size(16, 18);
+  }
+}
+
+.list {
+  &:not(:last-child) {
+    margin-bottom: rem(20);
+  }
+}
+
+@media (max-width: 1024px) {
+  .aside-title {
+    h3 {
+      @include size(12, 12);
+    }
+  }
+  .image {
+    width: rem(100);
+    height: rem(100);
+    margin: 0;
+    margin-right: rem(10);
+  }
+  .aside-content {
+    p {
+      @include size(12, 12);
+    }
+  }
+  .card-title {
+    @include size(20, 30);
+  }
+  .card-left-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: rem(15);
+    h3 {
+      @include size(16, 18);
+    }
+    p {
+      @include size(14, 16);
+    }
+  }
+  .icon {
+    svg {
+      width: rem(30);
+      height: rem(30);
+    }
+  }
+}
