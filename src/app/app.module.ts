@@ -14,11 +14,13 @@ import {MatCardModule} from "@angular/material/card";
 import { AnnouncementComponent } from './announcement/pages/announcement/announcement.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from "@angular/material/input";
+import { AnnouncementTeacherComponent } from './announcement/pages/announcement-teacher/announcement-teacher.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AnnouncementComponent
+    AnnouncementComponent,
+    AnnouncementTeacherComponent
 
   ],
   imports: [
