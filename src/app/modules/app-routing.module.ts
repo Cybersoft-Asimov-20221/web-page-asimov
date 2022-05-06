@@ -6,6 +6,7 @@ import {AnnouncementTeacherComponent} from "../announcement/pages/announcement-t
 import { CompetencesComponent } from "../competences/pages/competences/competences.component";
 import {CoursesComponent} from "../courses/pages/courses/courses.component";
 import {TeachersComponent} from "../teachers/pages/teachers/teachers.component";
+import { TopTeachersComponent } from '../top-teachers/pages/top-teachers/top-teachers.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'announcementsTeacher', component: AnnouncementTeacherComponent},
   { path: 'competences', component: CompetencesComponent},
   { path: 'courses', component: CoursesComponent},
-  { path: 'teachers', component: TeachersComponent}
+  { path: 'teachers', component: TeachersComponent},
+  { path: 'top-teachers', component: TopTeachersComponent }
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
