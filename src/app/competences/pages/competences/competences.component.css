@@ -1,4 +1,13 @@
 .competences-card {
-  margin: 20px;
-  background-color: #29f;
+  background-color: #2251B5;
+  color: #fff;
+}
+.competences-card-content {
+  background-color: #fff;
+  color: #000;
+  height: 100%;
+}
+
+.content {
+  margin: 20px
 }
