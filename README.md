@@ -9,3 +9,6 @@ This repository contains the frontend for the asimov project
 * Joaquin San Martin Alvarez - U201910511
 * Yordy Rolando Mochcco Atauje - U201923959
 * Oscar Enrique palomino medina - U201822717
+
+## Documentation
+* version 1.0.0 06/05/2022
