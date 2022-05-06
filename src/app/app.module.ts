@@ -10,10 +10,16 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {AppRoutingModule} from "./modules/app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
+import {MatCardModule} from "@angular/material/card";
+import { AnnouncementComponent } from './announcement/pages/announcement/announcement.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AnnouncementComponent
+
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,10 @@ import {HttpClientModule} from "@angular/common/http";
     MatSidenavModule,
     MatListModule,
     AppRoutingModule,
-    HttpClientModule
+    MatCardModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
