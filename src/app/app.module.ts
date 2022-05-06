@@ -13,11 +13,18 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {DashboardComponent} from "./dashboard/pages/dashboard/dashboard.component";
+import { AnnouncementComponent } from './announcement/pages/announcement/announcement.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from "@angular/material/input";
+import { AnnouncementTeacherComponent } from './announcement/pages/announcement-teacher/announcement-teacher.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    AnnouncementComponent,
+    AnnouncementTeacherComponent
+
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,9 @@ import {DashboardComponent} from "./dashboard/pages/dashboard/dashboard.componen
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
