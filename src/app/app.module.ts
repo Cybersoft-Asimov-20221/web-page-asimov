@@ -19,6 +19,7 @@ import {MatInputModule} from "@angular/material/input";
 import { CompetencesComponent } from "./competences/pages/competences/competences.component";
 import { AnnouncementTeacherComponent } from './announcement/pages/announcement-teacher/announcement-teacher.component';
 import { CoursesComponent } from './courses/pages/courses/courses.component';
+import {TeachersComponent} from "./teachers/pages/teachers/teachers.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CoursesComponent } from './courses/pages/courses/courses.component';
     AnnouncementComponent,
     AnnouncementTeacherComponent,
     CompetencesComponent,
-    CoursesComponent
+    CoursesComponent,
+    TeachersComponent
   ],
   imports: [
     BrowserModule,
