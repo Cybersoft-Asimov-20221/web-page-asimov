@@ -16,6 +16,7 @@ import {DashboardComponent} from "./dashboard/pages/dashboard/dashboard.componen
 import { AnnouncementComponent } from './announcement/pages/announcement/announcement.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from "@angular/material/input";
+import { CompetencesComponent } from "./competences/pages/competences/competences.component";
 import { AnnouncementTeacherComponent } from './announcement/pages/announcement-teacher/announcement-teacher.component';
 
 @NgModule({
@@ -23,8 +24,8 @@ import { AnnouncementTeacherComponent } from './announcement/pages/announcement-
     AppComponent,
     DashboardComponent,
     AnnouncementComponent,
-    AnnouncementTeacherComponent
-
+    AnnouncementTeacherComponent,
+    CompetencesComponent
   ],
   imports: [
     BrowserModule,
