@@ -1,19 +1,22 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from "@angular/material/icon";
+import { MatListModule } from "@angular/material/list";
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatToolbarModule } from "@angular/material/toolbar";
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatButtonModule} from "@angular/material/button";
-import {MatIconModule} from "@angular/material/icon";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatListModule} from "@angular/material/list";
-import {AppRoutingModule} from "./modules/app-routing.module";
-import {HttpClientModule} from "@angular/common/http";
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./modules/app-routing.module";
+import { TopTeachersComponent } from './modules/top-teachers/pages/top-teachers.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopTeachersComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatSidenavModule,
     MatListModule,
     AppRoutingModule,
+    MatProgressBarModule,
+    MatCardModule,
     HttpClientModule
   ],
   providers: [],
