@@ -20,23 +20,23 @@
     {"id": 18, "name": "Ernest", "lastname": "Gomez Perez", "age": "34", "email": "ernest.gomez@gmail.com", "phone": "987654321", "idDirector": 1, "points": 320}
   ],
   "announcements": [
-    {"id": 1, "title": "Important notice of the classes", "description": "The classes are held in virtual method due to the present pandemic, Greetings, I hope you are well"},
-    {"id": 2, "title": "Weekly meeting", "description": "We meet to talk about different topics, among them we want to know what is the performance of the virtual classes"},
-    {"id": 3, "title": "Communicate for parents", "description": "Communicate to the parents of the students that the classes for tomorrow will take place in person"},
-    {"id": 4, "title": "Change of holidays", "description": "There will be no holidays for next month."},
-    {"id": 5, "title": "Announcement for teachers", "description": "We meet to talk about for important course for students"}
+    {"id": 1, "title": "Important notice of the classes", "description": "The classes are held in virtual method due to the present pandemic, Greetings, I hope you are well", "directorId": 1},
+    {"id": 2, "title": "Weekly meeting", "description": "We meet to talk about different topics, among them we want to know what is the performance of the virtual classes", "directorId": 1},
+    {"id": 3, "title": "Communicate for parents", "description": "Communicate to the parents of the students that the classes for tomorrow will take place in person", "directorId": 1},
+    {"id": 4, "title": "Change of holidays", "description": "There will be no holidays for next month.", "directorId": 1},
+    {"id": 5, "title": "Announcement for teachers", "description": "We meet to talk about for important course for students", "directorId": 1}
   ],
   "courses": [
-    {"id": 1, "name": "Algebra", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet."},
-    {"id": 2, "name": "Geometry", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "},
-    {"id": 3, "name": "Arithmetic", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "},
-    {"id": 4, "name": "Literature", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "},
-    {"id": 5, "name": "History", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "},
-    {"id": 6, "name": "Grammar", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "},
-    {"id": 7, "name": "Economy", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "},
-    {"id": 8, "name": "Psychology", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "},
-    {"id": 9, "name": "Trigonometry", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "},
-    {"id": 10, "name": "Chemistry", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. "}
+    {"id": 1, "name": "Algebra", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.", "state": false},
+    {"id": 2, "name": "Geometry", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ", "state": false},
+    {"id": 3, "name": "Arithmetic", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ", "state": false},
+    {"id": 4, "name": "Literature", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ", "state": false},
+    {"id": 5, "name": "History", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ", "state": false},
+    {"id": 6, "name": "Grammar", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ", "state": false},
+    {"id": 7, "name": "Economy", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ", "state": false},
+    {"id": 8, "name": "Psychology", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ", "state": false},
+    {"id": 9, "name": "Trigonometry", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ", "state": false},
+    {"id": 10, "name": "Chemistry", "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. ", "state": false}
   ],
   "items": [
     {"id": 1, "name": "Video", "description": "https://www.youtube.com/embed/LwCRRUa8yTU", "state": true, "idCourse": 1},
@@ -57,12 +57,12 @@
     {"id": 15, "name": "Video", "description": "https://www.youtube.com/embed/H-de6Tkxej8", "state": false, "idCourse": 2}
   ],
   "competences": [
-    {"id": 1, "title": "Mathematical Reasoning", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", "courseId": 1},
-    {"id": 2, "title": "Critical thinking", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", "courseId": 1},
-    {"id": 3, "title": "Grammar", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", "courseId": 1},
-    {"id": 4, "title": "Mathematical design", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", "courseId": 1},
-    {"id": 5, "title": "Creativity", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", "courseId": 1},
-    {"id": 6, "title": "Logic", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", "courseId": 1}
+    {"id": 1, "title": "Mathematical Reasoning", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet."},
+    {"id": 2, "title": "Critical thinking", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet."},
+    {"id": 3, "title": "Grammar", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet."},
+    {"id": 4, "title": "Mathematical design", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet."},
+    {"id": 5, "title": "Creativity", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet."},
+    {"id": 6, "title": "Logic", "concept": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet."}
   ],
   "Directors": [
     {"id": 1, "name": "Sofia", "lastname": "Gomez Perez", "age": "30", "phone": "999 999 999", "email": "sof-25@gmail.com"},
