@@ -10,10 +10,13 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {AppRoutingModule} from "./modules/app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
+import {TeachersComponent} from "./teachers/pages/teachers/teachers.component";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TeachersComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatSidenavModule,
     MatListModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
