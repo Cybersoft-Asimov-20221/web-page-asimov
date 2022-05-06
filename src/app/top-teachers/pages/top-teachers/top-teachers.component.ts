@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TopTeachersService } from "../services/top-teachers.service";
+import { TopTeachersService } from "../../services/top-teachers.service";
 
 @Component({
   selector: 'app-teachers',
@@ -10,10 +10,8 @@ export class TopTeachersComponent implements OnInit {
 
   teachers: Array<any> = [];
   x: number = 0;
-  constructor(
-    private TeachersService: TopTeachersService
-    )
-     { }
+
+  constructor(private TeachersService: TopTeachersService) { }
 
   ngOnInit(): void {
     this.getAllTeachers();

@@ -11,7 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./modules/app-routing.module";
-import { TopTeachersComponent } from './modules/top-teachers/pages/top-teachers.component';
+import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teachers.component';
 
 @NgModule({
   declarations: [
