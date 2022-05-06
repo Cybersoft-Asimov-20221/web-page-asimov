@@ -4,14 +4,16 @@ import {DashboardComponent} from "../dashboard/pages/dashboard/dashboard.compone
 import { AnnouncementComponent } from '../announcement/pages/announcement/announcement.component';
 import {AnnouncementTeacherComponent} from "../announcement/pages/announcement-teacher/announcement-teacher.component";
 import { CompetencesComponent } from "../competences/pages/competences/competences.component";
+import {CoursesComponent} from "../courses/pages/courses/courses.component";
+
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'announcements', component: AnnouncementComponent},
   { path: 'announcementsTeacher', component: AnnouncementTeacherComponent},
-  { path: 'competences', component: CompetencesComponent}
-];
-
+  { path: 'competences', component: CompetencesComponent},
+  { path: 'courses', component: CoursesComponent}
+]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

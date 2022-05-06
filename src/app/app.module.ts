@@ -18,6 +18,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from "@angular/material/input";
 import { CompetencesComponent } from "./competences/pages/competences/competences.component";
 import { AnnouncementTeacherComponent } from './announcement/pages/announcement-teacher/announcement-teacher.component';
+import { CoursesComponent } from './courses/pages/courses/courses.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AnnouncementTeacherComponent } from './announcement/pages/announcement-
     DashboardComponent,
     AnnouncementComponent,
     AnnouncementTeacherComponent,
-    CompetencesComponent
+    CompetencesComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
