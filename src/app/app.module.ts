@@ -20,6 +20,7 @@ import { CoursesComponent } from './courses/pages/courses/courses.component';
 import {TeachersComponent} from "./teachers/pages/teachers/teachers.component";
 import { AppComponent } from './app.component';
 import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teachers.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teac
     MatCardModule,
     MatProgressBarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
