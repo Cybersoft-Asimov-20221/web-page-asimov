@@ -51,4 +51,12 @@ export class AnnouncementService {
         catchError(this.handleError)
       )
   }
+
+  update(id: any, item: any) {
+    return this.http.put(`${this.basePath}/${id}`, item, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
 }

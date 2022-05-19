@@ -10,6 +10,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class AnnouncementComponent implements OnInit {
 
   announcement: Array<any> = [];
+  isUpdated: boolean = false;
+  addEdited: any;
 
   addAnnouncementForm: FormGroup = this.formBuilder.group({
     title: ['', {validators: [Validators.required, Validators.maxLength(60)], updateOn: 'change'}],
@@ -27,8 +29,8 @@ export class AnnouncementComponent implements OnInit {
 
   resetForm() {
     this.addAnnouncementForm.reset({title: '', description: ''});
-    /*this.title?.setErrors(null);
-    this.description?.setErrors(null);*/
+    this.title?.setErrors(null);
+    this.description?.setErrors(null);
   }
 
   getAllAnnouncements(){
@@ -41,6 +43,7 @@ export class AnnouncementComponent implements OnInit {
     const add = {
       title: this.addAnnouncementForm.value.title,
       description: this.addAnnouncementForm.value.description,
+      directorId: 1
     }
 
     this.announcementService.create(add).subscribe( (response) => {
@@ -57,8 +60,35 @@ export class AnnouncementComponent implements OnInit {
     })
   }
 
+  getAnnouncementEdited(add: any){
+    this.isUpdated = !this.isUpdated;
+    this.addEdited = add;
+    this.title?.setValue(this.addEdited.title);
+    this.description?.setValue(this.addEdited.description)
+  }
+
+  cancel() {
+    this.isUpdated = !this.isUpdated;
+    this.resetForm();
+    this.addEdited = {}
+  }
+
+  updateAnnouncement() {
+    const add = {
+      id: this.addEdited.id,
+      title: this.addAnnouncementForm.value.title,
+      description: this.addAnnouncementForm.value.description,
+      directorId: this.addEdited.directorId
+    }
+    this.announcementService.update(add.id, add).subscribe( (response) => {
+      console.log('announcement updated');
+      this.getAllAnnouncements();
+      this.cancel()
+    })
+  }
+
   submitForm() {
-    if(this.addAnnouncementForm.valid) {
+    if(this.addAnnouncementForm.valid && !this.isUpdated) {
       this.createAnnouncement()
     } else {
       console.log('error')
