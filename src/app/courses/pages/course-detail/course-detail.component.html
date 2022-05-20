@@ -1,0 +1,74 @@
+<div class="course">
+  <div class="left">
+    <h1 class="title">Course Information</h1>
+    <div class="information">
+      <div class="info-card">
+        <div class="info-card__top">
+          <h2>
+            {{course.name}}
+          </h2>
+        </div>
+        <div class="info-card__content">
+          <h3>
+            Description:
+          </h3>
+          <p>
+            {{course.description}}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vertical-space"></div>
+
+    <div class="items">
+      <h1 class="title">Course Items</h1>
+      <div class="card item-card" *ngFor="let item of items">
+        <span>
+          Item
+        </span>
+        <div class="item-card__content">
+          <div class="item-card__left">
+            <h3>
+              {{item.name}}
+            </h3>
+            <p>
+              {{item.description}}
+            </p>
+          </div>
+          <div class="item-card__right">
+            <button mat-stroked-button content="center" color="primary">{{item.name}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="right">
+    <div class="progress">
+      <h1 class="title">Course Progress</h1>
+      <div class="card">
+        <h1 class="progress-card__title">81%</h1>
+        <mat-progress-bar class="progress-bar" mode="buffer" [value]="80"></mat-progress-bar>
+      </div>
+    </div>
+
+    <div class="vertical-space"></div>
+
+    <div class="competences">
+      <h1 class="title">Competences Includes</h1>
+      <div class="card group__tags">
+        <span class="tags">Linguistic communication</span>
+        <span class="tags">Mathematical</span>
+        <span class="tags">Knowledge and interaction with the fisical world</span>
+        <span class="tags">Information processing and digital</span>
+        <span class="tags">Social and civic</span>
+        <span class="tags">Cultural and artistic</span>
+        <span class="tags">Learn to learn</span>
+        <span class="tags">Autonomy and personal initiative</span>
+      </div>
+    </div>
+  </div>
+</div>
+

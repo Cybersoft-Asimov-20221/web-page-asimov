@@ -15,12 +15,12 @@ import { AnnouncementTeacherComponent } from './announcement/pages/announcement-
 import { AnnouncementComponent } from './announcement/pages/announcement/announcement.component';
 import { AppComponent } from './app.component';
 import { CompetencesComponent } from "./competences/pages/competences/competences.component";
-import { CourseComponent } from "./course/pages/course/course.component";
 import { CoursesComponent } from './courses/pages/courses/courses.component';
 import { DashboardComponent } from "./dashboard/pages/dashboard/dashboard.component";
 import { AppRoutingModule } from "./modules/app-routing.module";
 import { TeachersComponent } from "./teachers/pages/teachers/teachers.component";
 import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teachers.component';
+import { CourseDetailComponent } from './courses/pages/course-detail/course-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +29,9 @@ import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teac
     AnnouncementTeacherComponent,
     CompetencesComponent,
     CoursesComponent,
-    CourseComponent,
     TeachersComponent,
-    TopTeachersComponent
+    TopTeachersComponent,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,

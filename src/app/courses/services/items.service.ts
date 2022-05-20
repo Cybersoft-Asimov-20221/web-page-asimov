@@ -1,13 +1,13 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import { catchError, retry, throwError } from "rxjs";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {catchError, retry, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CourseService {
+export class ItemsService {
 
-  basePath = 'http://localhost:3000/api/v1/courses';
+  basePath = 'http://localhost:3000/api/v1/items';
 
   httpOptions = {
     headers: new HttpHeaders({
