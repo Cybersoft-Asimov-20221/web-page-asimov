@@ -1,6 +1,13 @@
-<div *ngFor="let item of competences" class="content" >
-  <mat-card class="competences-card" >
-    <mat-card-title> {{ item.title }}</mat-card-title>
-  </mat-card>
-  <mat-card class="competences-card-content" >{{ item.concept }}</mat-card>
+<mat-toolbar class="title-toolbar">
+  <span >Teacher Progress</span>
+</mat-toolbar>
+<div class="courses-card-container">
+  <div *ngFor="let item of competences" class="courses-card">
+    <mat-toolbar class="title-card" color="primary"> {{item.title}}</mat-toolbar>
+    <mat-card>
+      <div class="courses-card-description">
+        <span>{{ item.concept }}</span>
+      </div>
+    </mat-card>
+  </div>
 </div>
