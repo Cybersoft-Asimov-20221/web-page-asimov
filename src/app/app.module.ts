@@ -20,6 +20,8 @@ import { CoursesComponent } from './courses/pages/courses/courses.component';
 import {TeachersComponent} from "./teachers/pages/teachers/teachers.component";
 import { AppComponent } from './app.component';
 import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teachers.component';
+import { TeacherDetailComponent } from './teachers/pages/teacher-detail/teacher-detail.component';
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -30,23 +32,25 @@ import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teac
     CompetencesComponent,
     CoursesComponent,
     TeachersComponent,
-    TopTeachersComponent
+    TopTeachersComponent,
+    TeacherDetailComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatCardModule,
-    MatProgressBarModule,
-    MatFormFieldModule,
-    MatInputModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatCardModule,
+        MatProgressBarModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatChipsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -34,4 +34,11 @@ export class TeachersService {
         catchError(this.handleError)
       )
   }
+  getById(id: any) {
+    return this.http.get(`${this.basePath}/${id}`,this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
 }

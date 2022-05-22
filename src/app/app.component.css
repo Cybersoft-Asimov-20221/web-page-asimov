@@ -1,8 +1,8 @@
 .default-spacer {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 .sidenav {
-  height: 80vmax;
+  height: 160vmax;
   background-color: white;
   margin: 20px;
 }
@@ -30,9 +30,14 @@
 }
 .icon {
   margin-right: 25px;
-  padding-bottom: 0px;
 }
 .side-title {
   margin: 20px;
   font-weight: bold;
 }
+
+/*DELETE OVERFLOW
+.mat-drawer-content {
+  overflow: hidden;
+}
+*/
