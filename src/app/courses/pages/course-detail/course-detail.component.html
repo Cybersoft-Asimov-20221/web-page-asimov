@@ -36,13 +36,14 @@
               {{item.description}}
             </p>
           </div>
-          <div class="item-card__right">
-            <button mat-stroked-button content="center" color="primary">{{item.name}}</button>
+          <div class="item-card__right" mat-dialog-content>
+            <div mat-dialog-actions>
+              <button mat-button (click)="openDialog(item)">{{item.name}}</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 
   <div class="right">
@@ -59,14 +60,7 @@
     <div class="competences">
       <h1 class="title">Competences Includes</h1>
       <div class="card group__tags">
-        <span class="tags">Linguistic communication</span>
-        <span class="tags">Mathematical</span>
-        <span class="tags">Knowledge and interaction with the fisical world</span>
-        <span class="tags">Information processing and digital</span>
-        <span class="tags">Social and civic</span>
-        <span class="tags">Cultural and artistic</span>
-        <span class="tags">Learn to learn</span>
-        <span class="tags">Autonomy and personal initiative</span>
+        <span class="tags" *ngFor="let item of competences">{{item.title}}</span>
       </div>
     </div>
   </div>

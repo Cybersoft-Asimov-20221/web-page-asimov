@@ -20,7 +20,8 @@ import { DashboardComponent } from "./dashboard/pages/dashboard/dashboard.compon
 import { AppRoutingModule } from "./modules/app-routing.module";
 import { TeachersComponent } from "./teachers/pages/teachers/teachers.component";
 import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teachers.component';
-import { CourseDetailComponent } from './courses/pages/course-detail/course-detail.component';
+import { CourseDetailComponent, DialogCourse } from './courses/pages/course-detail/course-detail.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { CourseDetailComponent } from './courses/pages/course-detail/course-deta
     CoursesComponent,
     TeachersComponent,
     TopTeachersComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    DialogCourse
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { CourseDetailComponent } from './courses/pages/course-detail/course-deta
     MatCardModule,
     MatProgressBarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

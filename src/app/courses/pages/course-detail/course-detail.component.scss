@@ -76,6 +76,7 @@ span {
   @include size(14, 16);
   opacity: 0.7;
 }
+  &:not(:last-child) {margin-bottom: rem(20);}
 }
 
 .item-card__content {
