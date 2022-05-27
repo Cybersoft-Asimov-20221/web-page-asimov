@@ -20,6 +20,7 @@ import { CoursesComponent } from './courses/pages/courses/courses.component';
 import {TeachersComponent} from "./teachers/pages/teachers/teachers.component";
 import { AppComponent } from './app.component';
 import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teachers.component';
+import { ProfileComponent } from './profile/pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teac
     CompetencesComponent,
     CoursesComponent,
     TeachersComponent,
-    TopTeachersComponent
+    TopTeachersComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
