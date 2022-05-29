@@ -2,10 +2,7 @@
   flex: 1 1 auto;
 }
 .sidenav {
-<<<<<<< HEAD
   min-height: 100vh;
-=======
->>>>>>> 8809916f4f5a48fb2ae69f54d210fcbab45c081d
   background-color: white;
   margin: 20px;
 }
