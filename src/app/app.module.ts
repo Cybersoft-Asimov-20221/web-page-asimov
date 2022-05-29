@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TeacherDetailComponent } from './teachers/pages/teacher-detail/teacher-detail.component';
 import { MatChipsModule } from "@angular/material/chips";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ProfileComponent } from './profile/pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     TopTeachersComponent,
     TeacherDetailComponent,
     CourseDetailComponent,
-    DialogCourse
+    DialogCourse,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

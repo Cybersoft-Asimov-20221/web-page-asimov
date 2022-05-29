@@ -9,6 +9,7 @@ import { TeachersComponent } from "../teachers/pages/teachers/teachers.component
 import { TopTeachersComponent } from '../top-teachers/pages/top-teachers/top-teachers.component';
 import {CourseDetailComponent} from "../courses/pages/course-detail/course-detail.component";
 import {TeacherDetailComponent} from "../teachers/pages/teacher-detail/teacher-detail.component";
+import {ProfileComponent} from "../profile/pages/profile/profile.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'teachers', component: TeachersComponent},
   { path: 'top-teachers', component: TopTeachersComponent },
   { path: 'teachers/:id', component: TeacherDetailComponent },
+  { path: 'profile', component: ProfileComponent}
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
