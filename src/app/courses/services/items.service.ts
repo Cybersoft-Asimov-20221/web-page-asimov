@@ -7,7 +7,7 @@ import {catchError, retry, throwError} from "rxjs";
 })
 export class ItemsService {
 
-  basePath = 'http://localhost:3000/api/v1/items';
+  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/items';
 
   httpOptions = {
     headers: new HttpHeaders({
