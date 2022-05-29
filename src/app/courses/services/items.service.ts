@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError, retry,throwError} from "rxjs";
+import {catchError, retry, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CoursesService {
+export class ItemsService {
 
-  basePath = 'http://localhost:3000/api/v1/courses';
+  basePath = 'http://localhost:3000/api/v1/items';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -35,13 +35,4 @@ export class CoursesService {
         catchError(this.handleError)
       )
   }
-
-  getById(id: any) {
-    return this.http.get(`${this.basePath}/${id}`,this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
-  }
-
 }
