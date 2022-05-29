@@ -1,5 +1,5 @@
 .default-spacer {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 .sidenav {
   min-height: 100vh;
@@ -30,7 +30,6 @@
 }
 .icon {
   margin-right: 25px;
-  padding-bottom: 0px;
 }
 .side-title {
   margin: 20px;

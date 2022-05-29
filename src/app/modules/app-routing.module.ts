@@ -8,6 +8,8 @@ import { DashboardComponent } from "../dashboard/pages/dashboard/dashboard.compo
 import { TeachersComponent } from "../teachers/pages/teachers/teachers.component";
 import { TopTeachersComponent } from '../top-teachers/pages/top-teachers/top-teachers.component';
 import {CourseDetailComponent} from "../courses/pages/course-detail/course-detail.component";
+import {TeacherDetailComponent} from "../teachers/pages/teacher-detail/teacher-detail.component";
+
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent},
@@ -17,7 +19,8 @@ const routes: Routes = [
   { path: 'courses', component: CoursesComponent},
   { path: 'courses/:id', component: CourseDetailComponent},
   { path: 'teachers', component: TeachersComponent},
-  { path: 'top-teachers', component: TopTeachersComponent }
+  { path: 'top-teachers', component: TopTeachersComponent },
+  { path: 'teachers/:id', component: TeacherDetailComponent },
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

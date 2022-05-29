@@ -22,6 +22,8 @@ import { TeachersComponent } from "./teachers/pages/teachers/teachers.component"
 import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teachers.component';
 import { CourseDetailComponent, DialogCourse } from './courses/pages/course-detail/course-detail.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TeacherDetailComponent } from './teachers/pages/teacher-detail/teacher-detail.component';
+import {MatChipsModule} from "@angular/material/chips";
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     CoursesComponent,
     TeachersComponent,
     TopTeachersComponent,
+    TeacherDetailComponent,
     CourseDetailComponent,
     DialogCourse
   ],
@@ -49,7 +52,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatProgressBarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
