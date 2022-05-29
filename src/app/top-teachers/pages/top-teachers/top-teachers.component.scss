@@ -1,24 +1,4 @@
-@use "sass:math";
-$base-font-size: 14;
-@function rem($size) {
-  @return #{math.div($size, $base-font-size)}rem;
-}
-
-@mixin size($size, $height: 0) {
-  font-size: rem($size);
-
-  @if $height>0 {
-    line-height: #{math.div($height, $size)}em;
-  }
-}
-
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-  padding: 0;
-}
+@import "../../../../utils.scss";
 
 .title {
   h1 {
@@ -35,10 +15,6 @@ p {
   }
   margin-bottom: rem(30);
 }
-
-// .card {
-//   margin-bottom: rem(40);
-// }
 
 .card-top {
   padding: rem(20) 0;
@@ -147,8 +123,7 @@ p {
   .image {
     width: rem(100);
     height: rem(100);
-    margin: 0;
-    margin-right: rem(10);
+    margin: 0 rem(10) 0 0;
   }
   .aside-content {
     p {

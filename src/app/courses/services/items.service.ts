@@ -1,13 +1,13 @@
+import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import { Injectable } from "@angular/core";
 import {catchError, retry, throwError} from "rxjs";
 
 @Injectable({
-  providedIn:'root'
-  })
-export class TopTeachersService {
+  providedIn: 'root'
+})
+export class ItemsService {
 
-  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/teachers';
+  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/items';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -15,7 +15,7 @@ export class TopTeachersService {
     })
   }
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient) { }
 
   handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {
@@ -33,6 +33,6 @@ export class TopTeachersService {
       .pipe(
         retry(2),
         catchError(this.handleError)
-      );
+      )
   }
 }

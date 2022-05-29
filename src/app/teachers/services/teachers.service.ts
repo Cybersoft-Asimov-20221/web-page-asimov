@@ -6,7 +6,7 @@ import {catchError, retry, throwError} from "rxjs";
 providedIn:'root'
 })
 export class TeachersService {
-  basePath = 'http://localhost:3000/api/v1/teachers';
+  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/teachers';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -29,6 +29,13 @@ export class TeachersService {
 
   getAll() {
     return this.http.get(this.basePath, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+  getById(id: any) {
+    return this.http.get(`${this.basePath}/${id}`,this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

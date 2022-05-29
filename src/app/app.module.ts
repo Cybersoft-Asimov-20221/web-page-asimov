@@ -1,25 +1,31 @@
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatListModule } from "@angular/material/list";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatToolbarModule } from "@angular/material/toolbar";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatButtonModule} from "@angular/material/button";
-import {MatIconModule} from "@angular/material/icon";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatListModule} from "@angular/material/list";
-import {AppRoutingModule} from "./modules/app-routing.module";
-import {HttpClientModule} from "@angular/common/http";
-import {MatCardModule} from "@angular/material/card";
-import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {DashboardComponent} from "./dashboard/pages/dashboard/dashboard.component";
-import { AnnouncementComponent } from './announcement/pages/announcement/announcement.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from "@angular/material/input";
-import { CompetencesComponent } from "./competences/pages/competences/competences.component";
 import { AnnouncementTeacherComponent } from './announcement/pages/announcement-teacher/announcement-teacher.component';
-import { CoursesComponent } from './courses/pages/courses/courses.component';
-import {TeachersComponent} from "./teachers/pages/teachers/teachers.component";
+import { AnnouncementComponent } from './announcement/pages/announcement/announcement.component';
 import { AppComponent } from './app.component';
+import { CompetencesComponent } from "./competences/pages/competences/competences.component";
+import { CoursesComponent } from './courses/pages/courses/courses.component';
+import { DashboardComponent } from "./dashboard/pages/dashboard/dashboard.component";
+import { AppRoutingModule } from "./modules/app-routing.module";
+import { TeachersComponent } from "./teachers/pages/teachers/teachers.component";
 import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teachers.component';
+import { CourseDetailComponent, DialogCourse } from './courses/pages/course-detail/course-detail.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TeacherDetailComponent } from './teachers/pages/teacher-detail/teacher-detail.component';
+import { MatChipsModule } from "@angular/material/chips";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ProfileComponent } from './profile/pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,11 @@ import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teac
     CompetencesComponent,
     CoursesComponent,
     TeachersComponent,
-    TopTeachersComponent
+    TopTeachersComponent,
+    TeacherDetailComponent,
+    CourseDetailComponent,
+    DialogCourse,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +55,11 @@ import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teac
     MatCardModule,
     MatProgressBarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule,
+    MatChipsModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

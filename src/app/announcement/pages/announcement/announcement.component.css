@@ -24,7 +24,6 @@
 .title-input2{
   margin: 3px;
   width: 100%;
-  background-color: white;
   border-radius: 5px;
 }
 
@@ -45,4 +44,19 @@
 
 .example-spacer {
   flex: 1 1 auto;
+}
+
+.align-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+button {
+  margin: 5px;
 }

@@ -1,13 +1,14 @@
+import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import { Injectable } from "@angular/core";
 import {catchError, retry, throwError} from "rxjs";
 
 @Injectable({
-  providedIn:'root'
-  })
-export class TopTeachersService {
+  providedIn: 'root'
+})
+export class ProfileService {
 
-  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/teachers';
+  basePathTeacher = 'https://asimov-api-fake.herokuapp.com/api/v1/teachers';
+  basePathDirector = 'https://asimov-api-fake.herokuapp.com/api/v1/directors';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -15,7 +16,7 @@ export class TopTeachersService {
     })
   }
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient) { }
 
   handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {
@@ -28,11 +29,19 @@ export class TopTeachersService {
     return throwError('Something happened with request, please try again later');
   }
 
-  getAll() {
-    return this.http.get(this.basePath, this.httpOptions)
+  getTeacherById(id: any) {
+    return this.http.get(`${this.basePathTeacher}/${id}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
-      );
+      )
+  }
+
+  getDirectorById(id: any) {
+    return this.http.get(`${this.basePathDirector}/${id}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
 }

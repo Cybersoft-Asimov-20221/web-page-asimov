@@ -7,7 +7,7 @@ import {catchError, retry, throwError} from "rxjs";
 })
 export class AnnouncementService {
 
-  basePath = 'http://localhost:3000/api/v1/announcements'
+  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/announcements'
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -28,11 +28,35 @@ export class AnnouncementService {
     return throwError('Something happened with request, please try again later');
   }
 
+  create(item: any) {
+    return this.http.post(this.basePath, item, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
   getAllAnnouncements() {
     return this.http.get(this.basePath, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       );
+  }
+
+  delete(id: any) {
+    return this.http.delete(`${this.basePath}/${id}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  update(id: any, item: any) {
+    return this.http.put(`${this.basePath}/${id}`, item, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
 }

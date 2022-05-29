@@ -7,7 +7,7 @@ import {catchError, retry,throwError} from "rxjs";
 })
 export class CoursesService {
 
-  basePath = 'http://localhost:3000/api/v1/courses';
+  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/courses';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -35,4 +35,13 @@ export class CoursesService {
         catchError(this.handleError)
       )
   }
+
+  getById(id: any) {
+    return this.http.get(`${this.basePath}/${id}`,this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
 }

@@ -10,7 +10,7 @@ export class TopTeachersComponent implements OnInit {
 
   teachers: Array<any> = [];
   x: number = 0;
-
+  top: any;
   constructor(private TeachersService: TopTeachersService) { }
 
   ngOnInit(): void {
@@ -22,6 +22,7 @@ export class TopTeachersComponent implements OnInit {
       this.teachers = response;
       this.teachers.sort((a, b) =>  0 - (a.points < b.points ? -1 : 1));
       this.x = this.teachers[0].points/2000*100;
+      this.top = this.teachers[0];
     })
   }
 }
