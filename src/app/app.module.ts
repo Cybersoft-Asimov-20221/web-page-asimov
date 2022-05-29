@@ -23,7 +23,9 @@ import { TopTeachersComponent } from './top-teachers/pages/top-teachers/top-teac
 import { CourseDetailComponent, DialogCourse } from './courses/pages/course-detail/course-detail.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TeacherDetailComponent } from './teachers/pages/teacher-detail/teacher-detail.component';
-import {MatChipsModule} from "@angular/material/chips";
+import { MatChipsModule } from "@angular/material/chips";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +56,8 @@ import {MatChipsModule} from "@angular/material/chips";
     MatInputModule,
     MatDialogModule,
     MatChipsModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
