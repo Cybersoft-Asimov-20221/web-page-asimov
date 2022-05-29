@@ -7,7 +7,7 @@ import {catchError, retry, throwError} from "rxjs";
 })
 export class AnnouncementService {
 
-  basePath = 'http://localhost:3000/api/v1/announcements'
+  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/announcements'
 
   httpOptions = {
     headers: new HttpHeaders({
