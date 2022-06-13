@@ -26,6 +26,10 @@ import { TeacherDetailComponent } from './teachers/pages/teacher-detail/teacher-
 import { MatChipsModule } from "@angular/material/chips";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ProfileComponent } from './profile/pages/profile/profile.component';
+import { SignUpComponent } from './sign-up/pages/sign-up/sign-up.component';
+import { MatGridListModule } from "@angular/material/grid-list";
+import {MatSelectModule} from "@angular/material/select";
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -40,7 +44,8 @@ import { ProfileComponent } from './profile/pages/profile/profile.component';
     TeacherDetailComponent,
     CourseDetailComponent,
     DialogCourse,
-    ProfileComponent
+    ProfileComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,10 @@ import { ProfileComponent } from './profile/pages/profile/profile.component';
     MatDialogModule,
     MatChipsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
