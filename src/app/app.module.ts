@@ -26,6 +26,8 @@ import { TeacherDetailComponent } from './teachers/pages/teacher-detail/teacher-
 import { MatChipsModule } from "@angular/material/chips";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ProfileComponent } from './profile/pages/profile/profile.component';
+import { SignInComponent } from './sign-in/pages/sign-in/sign-in.component';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { ProfileComponent } from './profile/pages/profile/profile.component';
     TeacherDetailComponent,
     CourseDetailComponent,
     DialogCourse,
-    ProfileComponent
+    ProfileComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { ProfileComponent } from './profile/pages/profile/profile.component';
     MatDialogModule,
     MatChipsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
