@@ -30,6 +30,8 @@ import { SignUpComponent } from './sign-up/pages/sign-up/sign-up.component';
 import { MatGridListModule } from "@angular/material/grid-list";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
+import { SignInComponent } from './sign-in/pages/sign-in/sign-in.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import {MatRadioModule} from "@angular/material/radio";
     CourseDetailComponent,
     DialogCourse,
     ProfileComponent,
-    SignUpComponent
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
