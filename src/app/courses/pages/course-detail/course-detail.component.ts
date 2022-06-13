@@ -1,10 +1,10 @@
-import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
-import { CoursesService } from "../../services/courses.service";
-import { ItemsService } from "../../services/items.service";
+import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from "@angular/router";
 import { CompetencesService } from "../../services/competences.service";
-import { MatDialog, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { CoursesService } from "../../services/courses.service";
+import { ItemsService } from "../../services/items.service";
 
 export interface ItemData {
   id: number;
@@ -22,9 +22,11 @@ export interface ItemData {
 export class CourseDetailComponent implements OnInit, AfterViewInit {
 
   courses: Array<any> = [];
+  allItems: Array<any> = [];
   items: Array<any> = [];
   competences: Array<any> = [];
   course: any = {};
+  percent: number = 0.0;
 
   constructor(private coursesService: CoursesService, private itemsService: ItemsService,
               private route: ActivatedRoute, private competencesService: CompetencesService,
@@ -32,8 +34,8 @@ export class CourseDetailComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getAllCourses();
-    this.getAllItems();
     this.getAllCompetences();
+    this.getAllItems();
   }
 
   ngAfterViewInit() {
@@ -47,11 +49,17 @@ export class CourseDetailComponent implements OnInit, AfterViewInit {
       })
   }
   getAllItems() {
+    let courseId = this.course.id;
+    this.route.paramMap.subscribe(params => {
+      courseId = params.get('id');
+    })
     this.itemsService.getAll()
       .subscribe( (response: any) => {
-        this.items = response;
+        this.allItems = response;
+        this.items = this.allItems.filter(item => item.idCourse === Number(courseId));
       })
   }
+
   getAllCompetences() {
     this.competencesService.getAll()
       .subscribe( (response: any) => {
@@ -70,12 +78,21 @@ export class CourseDetailComponent implements OnInit, AfterViewInit {
       })
   }
 
+  updatePercent() {
+    let lenght = this.items.length;
+    this.percent += (100 / lenght);
+  }
+
   openDialog(item: any) {
     const dialogRef = this.dialog.open(DialogCourse, {
       data: item
     });
+
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
+      if (result) {
+        this.updatePercent();
+      }
     });
   }
 }
@@ -86,7 +103,11 @@ export class CourseDetailComponent implements OnInit, AfterViewInit {
   //template: 'passed in {{data.name}}'
 })
 export class DialogCourse {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: ItemData, private _sanitizer: DomSanitizer) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ItemData, private _sanitizer: DomSanitizer,
+  public dialogRef: MatDialogRef<DialogCourse>) {}
+  onComplete(): void{
+    this.dialogRef.close();
+  }
 
   getVideoIframe(url: any) {
     var video, results;
