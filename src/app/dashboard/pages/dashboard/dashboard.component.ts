@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.setProgressDate();
-    this.getAllAnnouncements();
+    this.getAllAnnouncements(1);
   }
 
   setProgressDate() {
@@ -30,8 +30,8 @@ export class DashboardComponent implements OnInit {
     this.valueProgress = Math.trunc((daysProgress*100)/totalDays);
   }
 
-  getAllAnnouncements() {
-    this.DashboardService.getAllAnnouncements()
+  getAllAnnouncements(id: any) {
+    this.DashboardService.getAllAnnouncements(id)
       .subscribe( (response: any) => {
         this.announcements = response;
         this.announcements.reverse();

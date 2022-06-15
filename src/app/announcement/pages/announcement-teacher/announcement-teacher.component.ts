@@ -15,7 +15,7 @@ export class AnnouncementTeacherComponent implements OnInit {
     this.getAllAnnouncementsTeacher();
   }
   getAllAnnouncementsTeacher(){
-    return this.announcementTeacherService.getAllAnnouncements().subscribe((response: any)=>{
+    return this.announcementTeacherService.getAllAnnouncements(1).subscribe((response: any)=>{
       this.announcement = response;
     })
   }

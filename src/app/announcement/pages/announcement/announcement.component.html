@@ -23,7 +23,7 @@
       </div>
     </mat-card-content>
     <div class="button-form">
-      <button mat-button color="primary" [disabled]="!this.addAnnouncementForm.valid" *ngIf="!isUpdated" (click)="createAnnouncement()">Add</button>
+      <button mat-button color="primary" [disabled]="!this.addAnnouncementForm.valid" *ngIf="!isUpdated" (click)="createAnnouncement(1)">Add</button>
       <button mat-button color="primary" *ngIf="isUpdated" (click)="updateAnnouncement()">Update</button>
       <button mat-button color="primary" *ngIf="isUpdated" (click)="cancel()">Cancel</button>
       <button mat-button color="primary" (click)="resetForm()">Reset</button>

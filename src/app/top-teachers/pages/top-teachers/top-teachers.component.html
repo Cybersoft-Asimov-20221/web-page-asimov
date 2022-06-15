@@ -8,7 +8,7 @@
     <mat-card class="card">
       <mat-card-header class="card-top">
         <h2 class="card-title">
-          Teacher Top: {{top.name}}
+          Teacher Top: {{top.first_name}}
         </h2>
       </mat-card-header>
       <mat-card-content mat-card-content class="card-content">
@@ -37,7 +37,7 @@
             </div>
             <div class="aside-content">
               <p>
-                {{top.points}} points
+                {{top.point}} points
               </p>
             </div>
           </div>
@@ -66,7 +66,7 @@
                 </i>
                 <div class="card-left-text">
                   <h3>
-                    <strong>Teacher: </strong> {{ teacher.name }}
+                    <strong>Teacher: </strong> {{ teacher.first_name }} {{teacher.last_name}}
                   </h3>
                   <p>
                     Score Obtained
@@ -76,7 +76,7 @@
             </div>
             <div class="card-right">
               <h2>
-                {{teacher.points}} Pts.
+                {{teacher.point}} Pts.
               </h2>
             </div>
           </div>

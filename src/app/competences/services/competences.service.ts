@@ -7,7 +7,7 @@ import {catchError, retry, throwError} from "rxjs";
 })
 
 export class CompetencesService {
-  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/competences'
+  basePath = 'http://localhost:8080/api/v1/competences'
 
   httpOptions = {
     headers: new HttpHeaders({

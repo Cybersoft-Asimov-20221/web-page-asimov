@@ -7,7 +7,7 @@ import {catchError, retry,throwError} from "rxjs";
 })
 export class CoursesService {
 
-  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/courses';
+  basePath = 'http://localhost:8080/api/v1';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -28,8 +28,8 @@ export class CoursesService {
     return throwError('Something happened with request, please try again later');
   }
 
-  getAll() {
-    return this.http.get(this.basePath, this.httpOptions)
+  getAllByTeacherId(teacherId: any) {
+    return this.http.get(`${this.basePath}/teachers/${teacherId}/courses`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -37,7 +37,7 @@ export class CoursesService {
   }
 
   getById(id: any) {
-    return this.http.get(`${this.basePath}/${id}`,this.httpOptions)
+    return this.http.get(`${this.basePath}/courses/${id}`,this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

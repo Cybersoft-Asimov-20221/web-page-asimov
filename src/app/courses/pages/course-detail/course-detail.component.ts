@@ -22,7 +22,6 @@ export interface ItemData {
 export class CourseDetailComponent implements OnInit, AfterViewInit {
 
   courses: Array<any> = [];
-  allItems: Array<any> = [];
   items: Array<any> = [];
   competences: Array<any> = [];
   course: any = {};
@@ -33,7 +32,6 @@ export class CourseDetailComponent implements OnInit, AfterViewInit {
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getAllCourses();
     this.getAllCompetences();
     this.getAllItems();
   }
@@ -42,26 +40,23 @@ export class CourseDetailComponent implements OnInit, AfterViewInit {
     this.getCourseById();
   }
 
-  getAllCourses() {
-    this.coursesService.getAll()
-      .subscribe( (response: any) => {
-        this.courses = response;
-      })
-  }
   getAllItems() {
-    let courseId = this.course.id;
+    let courseIde;
     this.route.paramMap.subscribe(params => {
-      courseId = params.get('id');
+      courseIde = params.get('id');
     })
-    this.itemsService.getAll()
+    this.itemsService.getAllByCourseId(courseIde)
       .subscribe( (response: any) => {
-        this.allItems = response;
-        this.items = this.allItems.filter(item => item.idCourse === Number(courseId));
+        this.items = response;
       })
   }
 
   getAllCompetences() {
-    this.competencesService.getAll()
+    let courseId;
+    this.route.paramMap.subscribe(params => {
+      courseId = params.get('id');
+    })
+    this.competencesService.getAllByCourseId(courseId)
       .subscribe( (response: any) => {
         this.competences = response;
       })

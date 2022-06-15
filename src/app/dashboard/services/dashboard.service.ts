@@ -7,7 +7,7 @@ import {catchError, retry, throwError} from "rxjs";
 })
 export class DashboardService {
 
-  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/announcements'
+  basePath = 'http://localhost:8080/api/v1'
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -28,8 +28,8 @@ export class DashboardService {
     return throwError('Something happened with request, please try again later');
   }
 
-  getAllAnnouncements() {
-    return this.http.get(this.basePath, this.httpOptions)
+  getAllAnnouncements(id: any) {
+    return this.http.get(`${this.basePath}/directors/${id}/announcements`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

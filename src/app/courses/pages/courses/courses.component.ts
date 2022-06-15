@@ -13,11 +13,11 @@ export class CoursesComponent implements OnInit {
   constructor(private courseService: CoursesService) { }
 
   ngOnInit(): void {
-    this.getAllCourses();
+    this.getAllCourses(1);
   }
 
-  getAllCourses() {
-    this.courseService.getAll()
+  getAllCourses(teacherId: any) {
+    this.courseService.getAllByTeacherId(teacherId)
       .subscribe( (response: any) => {
         this.courses = response;
       })

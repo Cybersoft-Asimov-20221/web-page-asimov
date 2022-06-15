@@ -13,11 +13,11 @@ export class TeachersComponent implements OnInit {
   constructor(private TeachersService: TeachersService) { }
 
   ngOnInit(): void {
-    this.getAllTeachers();
+    this.getAllTeachers(1);
   }
 
-  getAllTeachers() {
-    this.TeachersService.getAll()
+  getAllTeachers(directorId: any) {
+    this.TeachersService.getAll(directorId)
       .subscribe( (response: any) => {
         this.teachers = response;
       })
