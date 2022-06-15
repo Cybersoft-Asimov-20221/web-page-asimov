@@ -1,10 +1,10 @@
-import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
-import { CoursesService } from "../../services/courses.service";
-import { ItemsService } from "../../services/items.service";
+import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from "@angular/router";
 import { CompetencesService } from "../../services/competences.service";
-import { MatDialog, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { CoursesService } from "../../services/courses.service";
+import { ItemsService } from "../../services/items.service";
 
 export interface ItemData {
   id: number;
@@ -25,35 +25,38 @@ export class CourseDetailComponent implements OnInit, AfterViewInit {
   items: Array<any> = [];
   competences: Array<any> = [];
   course: any = {};
+  percent: number = 0.0;
 
   constructor(private coursesService: CoursesService, private itemsService: ItemsService,
               private route: ActivatedRoute, private competencesService: CompetencesService,
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getAllCourses();
-    this.getAllItems();
     this.getAllCompetences();
+    this.getAllItems();
   }
 
   ngAfterViewInit() {
     this.getCourseById();
   }
 
-  getAllCourses() {
-    this.coursesService.getAll()
-      .subscribe( (response: any) => {
-        this.courses = response;
-      })
-  }
   getAllItems() {
-    this.itemsService.getAll()
+    let courseIde;
+    this.route.paramMap.subscribe(params => {
+      courseIde = params.get('id');
+    })
+    this.itemsService.getAllByCourseId(courseIde)
       .subscribe( (response: any) => {
         this.items = response;
       })
   }
+
   getAllCompetences() {
-    this.competencesService.getAll()
+    let courseId;
+    this.route.paramMap.subscribe(params => {
+      courseId = params.get('id');
+    })
+    this.competencesService.getAllByCourseId(courseId)
       .subscribe( (response: any) => {
         this.competences = response;
       })
@@ -70,12 +73,21 @@ export class CourseDetailComponent implements OnInit, AfterViewInit {
       })
   }
 
+  updatePercent() {
+    let lenght = this.items.length;
+    this.percent += (100 / lenght);
+  }
+
   openDialog(item: any) {
     const dialogRef = this.dialog.open(DialogCourse, {
       data: item
     });
+
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
+      if (result) {
+        this.updatePercent();
+      }
     });
   }
 }
@@ -86,7 +98,11 @@ export class CourseDetailComponent implements OnInit, AfterViewInit {
   //template: 'passed in {{data.name}}'
 })
 export class DialogCourse {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: ItemData, private _sanitizer: DomSanitizer) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ItemData, private _sanitizer: DomSanitizer,
+  public dialogRef: MatDialogRef<DialogCourse>) {}
+  onComplete(): void{
+    this.dialogRef.close();
+  }
 
   getVideoIframe(url: any) {
     var video, results;

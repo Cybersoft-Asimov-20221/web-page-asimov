@@ -7,7 +7,7 @@ import {catchError, retry, throwError} from "rxjs";
   })
 export class TopTeachersService {
 
-  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/teachers';
+  basePath = 'https://app-asimov-api-220614235642.azurewebsites.net/api/v1';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -28,8 +28,8 @@ export class TopTeachersService {
     return throwError('Something happened with request, please try again later');
   }
 
-  getAll() {
-    return this.http.get(this.basePath, this.httpOptions)
+  getAll(directorId: any) {
+    return this.http.get(`${this.basePath}/directors/${directorId}/teachers`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

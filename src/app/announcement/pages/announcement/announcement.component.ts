@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AnnouncementService} from "../../services/announcement.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
@@ -21,7 +21,7 @@ export class AnnouncementComponent implements OnInit {
   constructor(private announcementService: AnnouncementService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.getAllAnnouncements();
+    this.getAllAnnouncements(1);
   }
 
   get title() { return this.addAnnouncementForm.get('title');}
@@ -33,30 +33,29 @@ export class AnnouncementComponent implements OnInit {
     this.description?.setErrors(null);
   }
 
-  getAllAnnouncements(){
-    return this.announcementService.getAllAnnouncements().subscribe((response: any)=>{
+  getAllAnnouncements(directorId: any){
+    return this.announcementService.getAllAnnouncements(directorId).subscribe((response: any)=>{
       this.announcement = response;
     })
   }
 
-  createAnnouncement() {
+  createAnnouncement(directorId: any) {
     const add = {
       title: this.addAnnouncementForm.value.title,
       description: this.addAnnouncementForm.value.description,
-      directorId: 1
     }
 
-    this.announcementService.create(add).subscribe( (response) => {
+    this.announcementService.create(directorId, add).subscribe( (response) => {
       console.log('announcement added');
       this.resetForm();
-      this.getAllAnnouncements();
+      this.getAllAnnouncements(directorId);
     })
   }
 
   deleteAnnouncement(id: any) {
     this.announcementService.delete(id).subscribe((response) => {
       console.log('announcement deleted');
-      this.getAllAnnouncements();
+      this.getAllAnnouncements(1);
     })
   }
 
@@ -75,21 +74,19 @@ export class AnnouncementComponent implements OnInit {
 
   updateAnnouncement() {
     const add = {
-      id: this.addEdited.id,
       title: this.addAnnouncementForm.value.title,
       description: this.addAnnouncementForm.value.description,
-      directorId: this.addEdited.directorId
     }
-    this.announcementService.update(add.id, add).subscribe( (response) => {
+    this.announcementService.update(this.addEdited.id, add).subscribe( (response) => {
       console.log('announcement updated');
-      this.getAllAnnouncements();
+      this.getAllAnnouncements(1);
       this.cancel()
     })
   }
 
   submitForm() {
     if(this.addAnnouncementForm.valid && !this.isUpdated) {
-      this.createAnnouncement()
+      this.createAnnouncement(1)
     } else {
       console.log('error')
     }

@@ -7,8 +7,8 @@ import {catchError, retry, throwError} from "rxjs";
 })
 export class ProfileService {
 
-  basePathTeacher = 'https://asimov-api-fake.herokuapp.com/api/v1/teachers';
-  basePathDirector = 'https://asimov-api-fake.herokuapp.com/api/v1/directors';
+  basePathTeacher = 'https://app-asimov-api-220614235642.azurewebsites.net/api/v1/teachers';
+  basePathDirector = 'https://app-asimov-api-220614235642.azurewebsites.net/api/v1/directors';
 
   httpOptions = {
     headers: new HttpHeaders({

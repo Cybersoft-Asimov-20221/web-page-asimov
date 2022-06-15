@@ -6,12 +6,12 @@
         <span class="title-toolbar">Teacher Details</span>
       </mat-toolbar>
       <div>
-        <mat-toolbar class="title-card" color="primary"> {{teacher.name}} {{teacher.lastname}}</mat-toolbar>
+        <mat-toolbar class="title-card" color="primary"> {{teacher.first_name}} {{teacher.last_name}}</mat-toolbar>
         <mat-card>
           <mat-card-content>
             <p><b>Personal Information:</b></p>
-            <p><b>- Name(s):</b> {{teacher.name}}</p>
-            <p><b>- Last name:</b> {{teacher.lastname}}</p>
+            <p><b>- Name(s):</b> {{teacher.first_name}}</p>
+            <p><b>- Last name:</b> {{teacher.last_name}}</p>
             <p><b>- Age:</b> {{teacher.age}}</p>
             <p><b>- Email:</b> {{teacher.email}}</p>
             <p><b>- Phone:</b> {{teacher.phone}}</p>
@@ -43,7 +43,7 @@
     </div>
     <mat-chip-list class="point-chip">
       <mat-chip color="primary" selected>
-        {{teacher.points}} points
+        {{teacher.point}} points
       </mat-chip>
     </mat-chip-list>
   </mat-card>

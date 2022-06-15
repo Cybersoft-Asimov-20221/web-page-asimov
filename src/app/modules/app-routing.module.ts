@@ -10,6 +10,8 @@ import { ProfileComponent } from "../profile/pages/profile/profile.component";
 import { TeacherDetailComponent } from "../teachers/pages/teacher-detail/teacher-detail.component";
 import { TeachersComponent } from "../teachers/pages/teachers/teachers.component";
 import { TopTeachersComponent } from '../top-teachers/pages/top-teachers/top-teachers.component';
+import { SignUpComponent } from "../sign-up/pages/sign-up/sign-up.component";
+import { SignInComponent } from "../sign-in/pages/sign-in/sign-in.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -22,7 +24,9 @@ const routes: Routes = [
   { path: 'teachers', component: TeachersComponent},
   { path: 'top-teachers', component: TopTeachersComponent },
   { path: 'teachers/:id', component: TeacherDetailComponent },
-  { path: 'profile', component: ProfileComponent}
+  { path: 'profile', component: ProfileComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'sign-in', component: SignInComponent}
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

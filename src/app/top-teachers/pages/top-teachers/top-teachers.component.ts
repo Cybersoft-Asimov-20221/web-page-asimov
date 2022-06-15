@@ -14,14 +14,14 @@ export class TopTeachersComponent implements OnInit {
   constructor(private TeachersService: TopTeachersService) { }
 
   ngOnInit(): void {
-    this.getAllTeachers();
+    this.getAllTeachers(1);
   }
 
-  getAllTeachers() {
-    this.TeachersService.getAll().subscribe( (response: any) => {
+  getAllTeachers(directorId: any) {
+    this.TeachersService.getAll(directorId).subscribe( (response: any) => {
       this.teachers = response;
       this.teachers.sort((a, b) =>  0 - (a.points < b.points ? -1 : 1));
-      this.x = this.teachers[0].points/2000*100;
+      this.x = this.teachers[0].point/2000*100;
       this.top = this.teachers[0];
     })
   }

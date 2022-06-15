@@ -7,7 +7,7 @@ import {catchError, retry, throwError} from "rxjs";
 })
 export class AnnouncementService {
 
-  basePath = 'https://asimov-api-fake.herokuapp.com/api/v1/announcements'
+  basePath = 'https://app-asimov-api-220614235642.azurewebsites.net/api/v1'
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -28,16 +28,16 @@ export class AnnouncementService {
     return throwError('Something happened with request, please try again later');
   }
 
-  create(item: any) {
-    return this.http.post(this.basePath, item, this.httpOptions)
+  create(directorId: any, item: any) {
+    return this.http.post(`${this.basePath}/directors/${directorId}/announcements`, item, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
   }
 
-  getAllAnnouncements() {
-    return this.http.get(this.basePath, this.httpOptions)
+  getAllAnnouncements(directorId: any) {
+    return this.http.get(`${this.basePath}/directors/${directorId}/announcements`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -45,7 +45,7 @@ export class AnnouncementService {
   }
 
   delete(id: any) {
-    return this.http.delete(`${this.basePath}/${id}`, this.httpOptions)
+    return this.http.delete(`${this.basePath}/announcements/${id}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -53,7 +53,7 @@ export class AnnouncementService {
   }
 
   update(id: any, item: any) {
-    return this.http.put(`${this.basePath}/${id}`, item, this.httpOptions)
+    return this.http.put(`${this.basePath}/announcements/${id}`, item, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
