@@ -7,7 +7,7 @@ import {catchError, retry, throwError} from "rxjs";
   })
 export class TopTeachersService {
 
-  basePath = 'http://localhost:8080/api/v1';
+  basePath = 'https://app-asimov-api-220614235642.azurewebsites.net/api/v1';
 
   httpOptions = {
     headers: new HttpHeaders({
