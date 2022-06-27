@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatRadioChange} from "@angular/material/radio";
+import {SignUpService} from "../../services/sign-up.service";
 
 
 @Component({
@@ -18,14 +19,22 @@ export class SignUpComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]),
     number: new FormControl('', [Validators.required, Validators.pattern(/[- +()0-9]+/)]),
   });
-
   showInput2: boolean = false;
-  constructor() { }
+  directors:Array<any> = []
+
+  constructor(private signUpService: SignUpService) { }
 
   ngOnInit(): void {
+    this.getAllDirectors()
   }
 
   showSelect($event: MatRadioChange) {
     this.showInput2 = $event.value == 'Teacher';
+  }
+
+  getAllDirectors() {
+    return this.signUpService.getAllDirectors().subscribe((response:any) => {
+      this.directors = response;
+    })
   }
 }

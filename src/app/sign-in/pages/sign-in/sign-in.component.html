@@ -1,4 +1,4 @@
-<mat-grid-list cols="5" rowHeight="1:3">
+<mat-grid-list cols="5" rowHeight="1:2.5">
   <!--Slogan-->
   <mat-grid-tile colspan="2" class="slogan">
     <div class="slogan-container">
@@ -11,14 +11,14 @@
     <mat-card>
       <mat-card-title>Sign-In</mat-card-title>
       <mat-card-content>
-        <form [formGroup]="signinForm">
+        <form [formGroup]="signInForm">
           <mat-form-field>
             <mat-label><mat-icon>mail</mat-icon> Email</mat-label>
             <input type="email" matInput formControlName="email">
-            <mat-error *ngIf="signinForm.controls['email'].hasError('required')">
+            <mat-error *ngIf="signInForm.controls['email'].hasError('required')">
               Email is <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="signinForm.value.email">
+            <mat-error *ngIf="signInForm.value.email">
               Incorrect email. Example: pat@example.com
             </mat-error>
           </mat-form-field>
@@ -28,19 +28,23 @@
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <mat-error *ngIf="signinForm.controls['password'].hasError('required')">
+            <mat-error *ngIf="signInForm.controls['password'].hasError('required')">
               Password is <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="signinForm.value.password">
+            <mat-error *ngIf="signInForm.value.password">
               Password must be a combination of lower-case, upper-case, numbers and at least 9 characters long
             </mat-error>
           </mat-form-field>
+          <mat-radio-group aria-label="Select an option" (change)="select($event)">
+            <mat-radio-button value="director">Director</mat-radio-button>
+            <mat-radio-button value="Teacher">Teacher</mat-radio-button>
+          </mat-radio-group>
         </form>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary">SIGN-IN</button>
+        <button [routerLink]="'/main/dashboard'" mat-raised-button color="primary">SIGN IN</button>
       </mat-card-actions>
-      <span class="aAccount">Dont have an account? <a href="https://www.youtube.com/watch?v=m8GGXBh4k-A">Register</a></span>
+      <span class="aAccount">Dont have an account? <a [routerLink]="'/sign-up'">Sign up</a></span>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

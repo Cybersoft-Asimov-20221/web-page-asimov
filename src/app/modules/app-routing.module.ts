@@ -12,21 +12,24 @@ import { TeachersComponent } from "../teachers/pages/teachers/teachers.component
 import { TopTeachersComponent } from '../top-teachers/pages/top-teachers/top-teachers.component';
 import { SignUpComponent } from "../sign-up/pages/sign-up/sign-up.component";
 import { SignInComponent } from "../sign-in/pages/sign-in/sign-in.component";
+import {MainComponent} from "../main/pages/main/main.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'announcements', component: AnnouncementComponent},
-  { path: 'announcementsTeacher', component: AnnouncementTeacherComponent},
-  { path: 'competences', component: CompetencesComponent},
-  { path: 'courses', component: CoursesComponent},
-  { path: 'courses/:id', component: CourseDetailComponent},
-  { path: 'teachers', component: TeachersComponent},
-  { path: 'top-teachers', component: TopTeachersComponent },
-  { path: 'teachers/:id', component: TeacherDetailComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'sign-in', component: SignInComponent}
+  { path: 'sign-in', component: SignInComponent},
+  { path: 'main', component: MainComponent, children: [
+      { path: 'dashboard', component: DashboardComponent},
+      { path: 'announcements', component: AnnouncementComponent},
+      { path: 'announcementsTeacher', component: AnnouncementTeacherComponent},
+      { path: 'competences', component: CompetencesComponent},
+      { path: 'courses', component: CoursesComponent},
+      { path: 'courses/:id', component: CourseDetailComponent},
+      { path: 'teachers', component: TeachersComponent},
+      { path: 'top-teachers', component: TopTeachersComponent },
+      { path: 'teachers/:id', component: TeacherDetailComponent },
+      { path: 'profile', component: ProfileComponent },
+    ]}
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

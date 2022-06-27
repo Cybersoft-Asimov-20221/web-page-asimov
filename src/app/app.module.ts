@@ -31,6 +31,7 @@ import { MatGridListModule } from "@angular/material/grid-list";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
 import { SignInComponent } from './sign-in/pages/sign-in/sign-in.component';
+import { MainComponent } from './main/pages/main/main.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { SignInComponent } from './sign-in/pages/sign-in/sign-in.component';
     DialogCourse,
     ProfileComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
