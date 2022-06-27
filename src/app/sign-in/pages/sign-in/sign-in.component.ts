@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {SignInService} from "../../services/sign-in.service";
-import {MatRadioChange} from "@angular/material/radio";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { MatRadioChange } from "@angular/material/radio";
+import { Router } from "@angular/router";
+import { SignInService } from "../../services/sign-in.service";
+
+interface user {
+  email: string;
+  password: string;
+}
 
 @Component({
   selector: 'app-sign-in',
@@ -13,25 +18,25 @@ export class SignInComponent implements OnInit {
   hide = true;
   signInForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]),
+    password: new FormControl('', [Validators.required]),
   });
+  isTeacher: boolean = false;
+
   constructor(public builder: FormBuilder, public authService: SignInService, public router: Router) {
   }
 
   ngOnInit(): void {
+    console.log('Bestial');
   }
 
-  get email() { return this.signInForm.controls['email'];}
-
-  get password() { return this.signInForm.controls['password'];}
-
-  signIn() {
-    this.authService.signIn(this.signInForm.value).subscribe((response: any) => {
-      this.authService.setToken(JSON.stringify(response.accessToken));
-      this.authService.setCurrentUser(JSON.stringify(response.user));
-      this.signInForm.reset();
-      console.log(`accessToken: ${this.authService.getToken()}`);
-      this.router.navigate(['home']).then();
+  onSubmit() {
+    const toSubmit: user = {
+      email: this.signInForm.value.email,
+      password: this.signInForm.value.password
+    }
+    this.authService.signIn(toSubmit).subscribe((response:any) => {
+      localStorage.setItem('token', response.token);
+      console.log(localStorage.getItem('token'));
     })
   }
 
@@ -41,7 +46,7 @@ export class SignInComponent implements OnInit {
   }
 
   select($event: MatRadioChange) {
-    //this.showInput2 = $event.value == 'Teacher';
+    this.isTeacher = $event.value === 'ROLE_TEACHER';
   }
 
 }

@@ -1,7 +1,6 @@
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError, Observable, retry, throwError} from "rxjs";
-import {Teacher} from "../../teachers/model/teacher";
+import { catchError, retry, throwError } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -29,18 +28,20 @@ export class SignInService {
     return throwError(() => new Error('Something happened with request, please try again later.'));
   }
 
-  // Sign-Up
-  signUp(user: Teacher): Observable<any> {
-    return this.http.post(`${this.basePath}/sign-up`, user)
-      .pipe(retry(2), catchError(this.handleError));
-  }
-
   // Sign-In
-  signIn(user: Teacher) {
-    return this.http.post(`${this.basePath}/sign-in`, user)
-      .pipe(retry(2), catchError(this.handleError));
-  }
 
+  signIn(data : any) {
+    let role = data.role === 'ROLE_TEACHER' ? 'teachers' : 'directors';
+    if(role === 'teachers') {
+      console.log(data);
+      return this.http.post(`${this.basePath}/${role}/auth/sign-in`, data, this.httpOptions).
+      pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+    }
+    return this.http.post(`${this.basePath}/${role}/auth/sign-in`, data, this.httpOptions)
+  }
 
 
   // Get Token

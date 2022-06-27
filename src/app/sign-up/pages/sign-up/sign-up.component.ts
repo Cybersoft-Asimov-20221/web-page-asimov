@@ -57,7 +57,6 @@ export class SignUpComponent implements OnInit {
       point: 0,
       directorId: this.selectedDirector ? this.selectedDirector : null
     }
-    console.log(toSubmit);
     this.signUpService.signUp(toSubmit).subscribe((response:any) => {
       console.log(response);
     })

@@ -26,6 +26,7 @@ export class SignUpService {
     }
     return throwError('Something happened with request, please try again later');
   }
+
   signUp(data: any) {
     let role = data.role === 'ROLE_TEACHER' ? 'teachers' : 'directors';
     let id = data.directorId;
