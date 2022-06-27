@@ -58,22 +58,22 @@
           </mat-form-field>
 
           <mat-radio-group aria-label="Select an option" (change)="showSelect($event)">
-            <mat-radio-button value="director">Director</mat-radio-button>
-            <mat-radio-button value="Teacher">Teacher</mat-radio-button>
+            <mat-radio-button value="ROLE_DIRECTOR">Director</mat-radio-button>
+            <mat-radio-button value="ROLE_TEACHER">Teacher</mat-radio-button>
           </mat-radio-group>
 
-          <mat-form-field appearance="fill" *ngIf="showInput2">
+          <mat-form-field appearance="fill" *ngIf="isTeacher">
             <mat-label>Director of your institution</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let director of directors">
-                {{director.first_name}}
+            <mat-select formControlName="directorsControl" [(ngModel)]="selectedDirector" >
+              <mat-option *ngFor="let director of directors" [value]="director.id" >
+                {{director.last_name}} {{director.first_name}}
               </mat-option>
             </mat-select>
           </mat-form-field>
         </form>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary">CREATE ACCOUNT</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">CREATE ACCOUNT</button>
       </mat-card-actions>
       <span class="aAccount">Already have an account? <a [routerLink]="'/sign-in'">Sign in</a>
       </span>
