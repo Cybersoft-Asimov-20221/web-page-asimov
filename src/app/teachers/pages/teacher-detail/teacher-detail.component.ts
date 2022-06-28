@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TeachersService} from "../../services/teachers.service";
-import {ActivatedRoute} from "@angular/router";
-import {CoursesService} from "../../../courses/services/courses.service";
+import { ActivatedRoute } from "@angular/router";
+import { CoursesService } from "../../../courses/services/courses.service";
+import { TeachersService } from "../../services/teachers.service";
 
 @Component({
   selector: 'app-teacher-detail',
@@ -16,10 +16,10 @@ export class TeacherDetailComponent implements OnInit {
   constructor(private teacherService: TeachersService, private route: ActivatedRoute, private coursesService: CoursesService) { }
 
   ngOnInit(): void {
-
+    console.log("")
   }
 
-  ngAfterViewInit() {
+  AfterViewInit() {
     this.getTeacherById();
     this.getAllCourses();
   }

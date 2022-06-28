@@ -1,16 +1,17 @@
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError, retry, throwError} from "rxjs";
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { catchError, retry, throwError } from "rxjs";
 
 @Injectable({
 providedIn:'root'
 })
 export class TeachersService {
-  basePath = 'https://app-asimov-api-220614235642.azurewebsites.net/api/v1';
+  basePath = 'http://localhost:8080/api/v1';
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
     })
   }
 

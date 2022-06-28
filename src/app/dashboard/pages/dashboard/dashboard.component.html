@@ -33,14 +33,12 @@
         <mat-progress-bar class="progress" mode="buffer" [value]="valueProgress"></mat-progress-bar>
       </mat-card-content>
     </mat-card>
-    <h1>Last Announcements</h1>
-    <mat-card class="shade-card">
-      <mat-card-title>{{announcements[0].title}}</mat-card-title>
-      <mat-card-subtitle>{{announcements[0].description}}</mat-card-subtitle>
-    </mat-card>
-    <mat-card class="shade-card">
-      <mat-card-title>{{announcements[1].title}}</mat-card-title>
-      <mat-card-subtitle>{{announcements[1].description}}</mat-card-subtitle>
-    </mat-card>
+    <div *ngIf="announcements.length > 0">
+      <h1>Last Announcements</h1>
+      <mat-card class="shade-card">
+        <mat-card-title>{{announcements[0].title}}</mat-card-title>
+        <mat-card-subtitle>{{announcements[0].description}}</mat-card-subtitle>
+      </mat-card>
+    </div>
   </div>
 </div>

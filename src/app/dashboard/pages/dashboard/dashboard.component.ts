@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DashboardService} from "../../services/dashboard.service";
+import { DashboardService } from "../../services/dashboard.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,16 +11,15 @@ export class DashboardComponent implements OnInit {
   valueProgress:number = 0;
   dateOut: number = 0;
   announcements: Array<any> = [];
-
   constructor(private DashboardService: DashboardService) { }
 
   ngOnInit(): void {
     this.setProgressDate();
-    this.getAllAnnouncements(1);
+    this.getAllAnnouncements();
   }
 
   setProgressDate() {
-    let dateStart = new Date(2022, 2, 20);
+    let dateStart = new Date(2022, 3, 16);
     let dateEnd = new Date(2022,11,10);
     let dateNow = new Date();
     let totalDays = dateEnd.getTime() - dateStart.getTime();
@@ -30,8 +29,8 @@ export class DashboardComponent implements OnInit {
     this.valueProgress = Math.trunc((daysProgress*100)/totalDays);
   }
 
-  getAllAnnouncements(id: any) {
-    this.DashboardService.getAllAnnouncements(id)
+  getAllAnnouncements() {
+    this.DashboardService.getAllAnnouncements()
       .subscribe( (response: any) => {
         this.announcements = response;
         this.announcements.reverse();
