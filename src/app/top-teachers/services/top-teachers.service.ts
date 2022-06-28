@@ -1,17 +1,18 @@
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import {catchError, retry, throwError} from "rxjs";
+import { catchError, retry, throwError } from "rxjs";
 
 @Injectable({
   providedIn:'root'
   })
 export class TopTeachersService {
 
-  basePath = 'https://app-asimov-api-220614235642.azurewebsites.net/api/v1';
+  basePath = 'http://localhost:8080/api/v1';
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
     })
   }
 
@@ -28,8 +29,8 @@ export class TopTeachersService {
     return throwError('Something happened with request, please try again later');
   }
 
-  getAll(directorId: any) {
-    return this.http.get(`${this.basePath}/directors/${directorId}/teachers`, this.httpOptions)
+  getAll() {
+    return this.http.get(`${this.basePath}/directors/${localStorage.getItem('userId')}/teachers`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

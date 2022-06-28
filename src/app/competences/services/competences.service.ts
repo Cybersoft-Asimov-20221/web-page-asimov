@@ -7,11 +7,12 @@ import { catchError, retry, throwError } from "rxjs";
 })
 
 export class CompetencesService {
-  basePath = 'http://localhost:8080/api/v1/competences'
+  basePath = 'http://localhost:8080/api/v1'
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
     })
   }
 
@@ -27,7 +28,7 @@ export class CompetencesService {
   }
 
   getAllCompetences() {
-    return this.http.get(this.basePath, this.httpOptions)
+    return this.http.get(`${this.basePath}/competences`, this.httpOptions)
       .pipe(retry(2),
         catchError(this.handleError)
       );
