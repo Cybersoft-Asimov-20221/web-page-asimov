@@ -6,13 +6,13 @@ import { CompetencesComponent } from "../competences/pages/competences/competenc
 import { CourseDetailComponent } from "../courses/pages/course-detail/course-detail.component";
 import { CoursesComponent } from "../courses/pages/courses/courses.component";
 import { DashboardComponent } from "../dashboard/pages/dashboard/dashboard.component";
+import { MainComponent } from "../main/pages/main/main.component";
 import { ProfileComponent } from "../profile/pages/profile/profile.component";
+import { SignInComponent } from "../sign-in/pages/sign-in/sign-in.component";
+import { SignUpComponent } from "../sign-up/pages/sign-up/sign-up.component";
 import { TeacherDetailComponent } from "../teachers/pages/teacher-detail/teacher-detail.component";
 import { TeachersComponent } from "../teachers/pages/teachers/teachers.component";
 import { TopTeachersComponent } from '../top-teachers/pages/top-teachers/top-teachers.component';
-import { SignUpComponent } from "../sign-up/pages/sign-up/sign-up.component";
-import { SignInComponent } from "../sign-in/pages/sign-in/sign-in.component";
-import {MainComponent} from "../main/pages/main/main.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},

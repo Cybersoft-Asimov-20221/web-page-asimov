@@ -1,8 +1,8 @@
 <h2 class="mat-title">Profile</h2>
 <mat-card class="cards">
   <mat-card-header class="header-card">
-    <mat-card-title *ngIf="isTeacher; else isDirector" class="title-profile">Hello Teacher</mat-card-title>
-    <ng-template #isDirector><mat-card-title class="title-profile">Hello Director</mat-card-title></ng-template>
+    <mat-card-title *ngIf="isTeacher===true" class="title-profile">Hello Teacher</mat-card-title>
+    <mat-card-title *ngIf="isTeacher ===false" class="title-profile">Hello Director</mat-card-title>
   </mat-card-header>
   <mat-card-content class="profile-detail-row">
     <div class="title-profile">

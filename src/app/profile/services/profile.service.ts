@@ -1,6 +1,6 @@
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError, retry, throwError} from "rxjs";
+import { catchError, retry, throwError } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -32,11 +32,11 @@ export class ProfileService {
   getUser() {
     if (localStorage.getItem('role') === 'ROLE_TEACHER') {
       return this.http.get(`${this.basePath}/teachers/${localStorage.getItem('userId')}`, this.httpOptions)
-        .pipe(
-          retry(2),
-          catchError(this.handleError)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
         )
-    }
+      }
     return this.http.get(`${this.basePath}/directors/${localStorage.getItem('userId')}`, this.httpOptions)
       .pipe(
         retry(2),

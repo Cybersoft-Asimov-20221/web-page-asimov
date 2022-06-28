@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ProfileService} from "../../services/profile.service";
+import { ProfileService } from "../../services/profile.service";
 
 @Component({
   selector: 'app-profile',
@@ -8,20 +8,20 @@ import {ProfileService} from "../../services/profile.service";
 })
 export class ProfileComponent implements OnInit {
   user: any;
-  isTeacher: boolean = true;
+  isTeacher: boolean = false;
 
   constructor(private profileService: ProfileService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getById();
+    this.isTeacher = localStorage.getItem("role") === 'ROLE_TEACHER' ? true : false;
   }
 
   getById() {
-    if (this.isTeacher) {
-      this.profileService.getUser()
-        .subscribe( (response:any) => {
-          this.user = response;
-        })
-    }
+    this.profileService.getUser()
+      .subscribe( (response:any) => {
+        console.log(response);
+        this.user = response;
+      })
   }
 }
