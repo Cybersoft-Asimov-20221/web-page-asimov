@@ -73,7 +73,7 @@
         </form>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="onSubmit()">CREATE ACCOUNT</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()" [routerLink]="'/sign-in'" [disabled]="registerForm.invalid">CREATE ACCOUNT</button>
       </mat-card-actions>
       <span class="aAccount">Already have an account? <a [routerLink]="'/sign-in'">Sign in</a>
       </span>

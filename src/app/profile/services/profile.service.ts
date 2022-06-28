@@ -7,19 +7,19 @@ import {catchError, retry, throwError} from "rxjs";
 })
 export class ProfileService {
 
-  basePathTeacher = 'https://app-asimov-api-220614235642.azurewebsites.net/api/v1/teachers';
-  basePathDirector = 'https://app-asimov-api-220614235642.azurewebsites.net/api/v1/directors';
+  basePath = 'http://localhost:8080/api/v1'
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
     })
   }
 
   constructor(private http: HttpClient) { }
 
   handleError(error: HttpErrorResponse) {
-    if(error.error instanceof ErrorEvent) {
+    if (error.error instanceof ErrorEvent) {
       console.log(`Ann error occurred: ${error.error.message}`);
     } else {
       console.error(
@@ -29,16 +29,15 @@ export class ProfileService {
     return throwError('Something happened with request, please try again later');
   }
 
-  getTeacherById(id: any) {
-    return this.http.get(`${this.basePathTeacher}/${id}`, this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
-  }
-
-  getDirectorById(id: any) {
-    return this.http.get(`${this.basePathDirector}/${id}`, this.httpOptions)
+  getUser() {
+    if (localStorage.getItem('role') === 'ROLE_TEACHER') {
+      return this.http.get(`${this.basePath}/teachers/${localStorage.getItem('userId')}`, this.httpOptions)
+        .pipe(
+          retry(2),
+          catchError(this.handleError)
+        )
+    }
+    return this.http.get(`${this.basePath}/directors/${localStorage.getItem('userId')}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

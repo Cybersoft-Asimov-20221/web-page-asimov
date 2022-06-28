@@ -2,7 +2,10 @@
   <button mat-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
   <span><mat-icon>school</mat-icon> Asimov</span>
   <span class="default-spacer"></span>
-  <button mat-button [routerLink]="'/profile'">Profile <mat-icon>account_circle</mat-icon></button>
+  <button mat-button [routerLink]="'/main/profile'">Profile <mat-icon>account_circle</mat-icon></button>
+  <button mat-button [routerLink]="'/sign-in'">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav class="sidenav-content" opened="false" mode="push">
