@@ -40,7 +40,7 @@ export class SignInComponent implements OnInit {
       role : this.isTeacher ? 'ROLE_TEACHER' : 'ROLE_STUDENT'
     }
     this.authService.signIn(toSubmit).subscribe((response:any) => {
-      console.log(response)
+      // console.log(response)
 
       if(response){
         localStorage.setItem('token', response.token);

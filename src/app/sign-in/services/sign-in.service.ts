@@ -1,7 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { catchError, retry, throwError } from "rxjs";
-
 @Injectable({
   providedIn: 'root'
 })
@@ -28,6 +27,17 @@ export class SignInService {
     return throwError(() => new Error('Something happened with request, please try again later.'));
   }
 
+  // AuthGuard
+
+  isLoggedIn() {
+    if(localStorage.length > 0) {
+      console.log('logged in');
+      return true;
+    }
+    console.log('not logged in');
+    return false;
+  }
+
   // Sign-In
 
   signIn(data : any) {
@@ -47,7 +57,7 @@ export class SignInService {
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
       }),
     };
     return this.http.get(`${this.basePath}/teachers/${id}`, this.httpOptions )
@@ -55,30 +65,6 @@ export class SignInService {
         retry(2),
         catchError(this.handleError)
       )
-  }
-
-  // Get Token
-  getToken() {
-    return localStorage.getItem('accessToken');
-  }
-
-  // Set Token
-  setToken(accessToken: string) {
-    localStorage.setItem('accessToken', accessToken);
-  }
-
-  // Get Current User
-  getCurrentUser() {
-    return localStorage.getItem('currentUser');
-  }
-  // Set Current User
-  setCurrentUser(user: string) {
-    localStorage.setItem('currentUser', user);
-  }
-  // Is Signed-In
-  get isSignedIn(): boolean {
-    let accessToken = this.getToken();
-    return accessToken !== null;
   }
 
   // Sign-Out
