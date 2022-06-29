@@ -17,6 +17,7 @@ export class TeacherDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTeacherById()
+    this.getCoursesByTeacherId()
   }
 
   getTeacherById() {
@@ -29,5 +30,16 @@ export class TeacherDetailComponent implements OnInit {
         this.teacher = response;
         this.percentProgress = this.teacher.point/2000*100; //->assign value in percent
       })
+  }
+  getCoursesByTeacherId() {
+    let teacherId;
+    this.route.paramMap.subscribe(params => {
+      teacherId = params.get('id');
+    })
+    this.teacherService.getCourses(teacherId)
+      .subscribe( (response: any) => {
+        this.courses = response;
+      }
+      )
   }
 }

@@ -76,6 +76,7 @@ export class CourseDetailComponent implements OnInit, AfterViewInit {
   updatePercent() {
     let lenght = this.items.length;
     this.percent += (100 / lenght);
+    this.percent = Math.round(this.percent * 100) / 100;
   }
 
   openDialog(item: any) {
