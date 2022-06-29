@@ -31,16 +31,16 @@
                 Password is <strong>required</strong>
               </mat-error>
             </mat-form-field>
-  
+
             <mat-radio-group aria-label="Select an option" (change)="select($event)">
               <mat-radio-button value="ROLE_DIRECTOR">Director</mat-radio-button>
               <mat-radio-button value="ROLE_TEACHER">Teacher</mat-radio-button>
             </mat-radio-group>
-  
+
           </form>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="onSubmit()">SIGN IN</button>
+          <button mat-raised-button color="primary" (click)="auth()">SIGN IN</button>
         </mat-card-actions>
         <span class="aAccount">Dont have an account? <a [routerLink]="'/sign-up'">Sign up</a></span>
       </mat-card>
