@@ -17,7 +17,7 @@ interface user {
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
   hide = true;
