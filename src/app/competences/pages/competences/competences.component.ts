@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CompetencesService} from "../../services/competences.service";
+import { CompetencesService } from "../../services/competences.service";
 
 @Component({
   selector: 'app-competences',
@@ -17,6 +17,7 @@ export class CompetencesComponent implements OnInit {
   }
   getAllCompetences() {
     return this.competencesService.getAllCompetences().subscribe((response: any)=>{
+      console.log(response);
       this.competences = response;
     })
   }

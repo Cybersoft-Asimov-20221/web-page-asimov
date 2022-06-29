@@ -7,25 +7,18 @@ import {ProfileService} from "../../services/profile.service";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
   user: any;
   isTeacher: boolean = true;
 
   constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
-    this.getById(1);
+    this.getById();
   }
 
-  getById(id: any) {
+  getById() {
     if (this.isTeacher) {
-      this.profileService.getTeacherById(id)
-        .subscribe( (response:any) => {
-          this.user = response;
-        })
-    }
-    else {
-      this.profileService.getDirectorById(id)
+      this.profileService.getUser()
         .subscribe( (response:any) => {
           this.user = response;
         })

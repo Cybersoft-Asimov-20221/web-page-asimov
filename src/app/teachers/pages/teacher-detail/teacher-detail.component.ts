@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TeachersService} from "../../services/teachers.service";
-import {ActivatedRoute} from "@angular/router";
-import {CoursesService} from "../../../courses/services/courses.service";
+import { ActivatedRoute } from "@angular/router";
+import { CoursesService } from "../../../courses/services/courses.service";
+import { TeachersService } from "../../services/teachers.service";
 
 @Component({
   selector: 'app-teacher-detail',
@@ -16,12 +16,7 @@ export class TeacherDetailComponent implements OnInit {
   constructor(private teacherService: TeachersService, private route: ActivatedRoute, private coursesService: CoursesService) { }
 
   ngOnInit(): void {
-
-  }
-
-  ngAfterViewInit() {
-    this.getTeacherById();
-    this.getAllCourses();
+    this.getTeacherById()
   }
 
   getTeacherById() {
@@ -34,15 +29,5 @@ export class TeacherDetailComponent implements OnInit {
         this.teacher = response;
         this.percentProgress = this.teacher.point/2000*100; //->assign value in percent
       })
-  }
-  //Courses
-  getAllCourses() {
-    let teacherId;
-    this.route.paramMap.subscribe(params => {
-      teacherId = params.get('id');
-    })
-    this.coursesService.getAllByTeacherId(teacherId).subscribe((response:any)=>{
-      this.courses = response;
-    })
   }
 }

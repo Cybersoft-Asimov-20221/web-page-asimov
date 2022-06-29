@@ -31,9 +31,9 @@ export class SignInService {
   // Sign-In
 
   signIn(data : any) {
-    let role = data.role === 'ROLE_TEACHER' ? 'teachers' : 'directors';
+    let role = data.role == 'ROLE_TEACHER' ? 'teachers' : 'directors';
     if(role === 'teachers') {
-      console.log(data);
+      // console.log(data);
       return this.http.post(`${this.basePath}/${role}/auth/sign-in`, data, this.httpOptions).
       pipe(
         retry(2),
@@ -43,6 +43,19 @@ export class SignInService {
     return this.http.post(`${this.basePath}/${role}/auth/sign-in`, data, this.httpOptions)
   }
 
+  getTeacher(id: any) {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }),
+    };
+    return this.http.get(`${this.basePath}/teachers/${id}`, this.httpOptions )
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
 
   // Get Token
   getToken() {
@@ -70,8 +83,10 @@ export class SignInService {
 
   // Sign-Out
   signOut() {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('role');
+    localStorage.removeItem('directorId');
   }
 
 }

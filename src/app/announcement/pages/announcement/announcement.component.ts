@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {AnnouncementService} from "../../services/announcement.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AnnouncementService } from "../../services/announcement.service";
 
 @Component({
   selector: 'app-announcement',
@@ -21,7 +21,7 @@ export class AnnouncementComponent implements OnInit {
   constructor(private announcementService: AnnouncementService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.getAllAnnouncements(1);
+    this.getAllAnnouncements(localStorage.getItem('userId'));
   }
 
   get title() { return this.addAnnouncementForm.get('title');}
@@ -39,23 +39,23 @@ export class AnnouncementComponent implements OnInit {
     })
   }
 
-  createAnnouncement(directorId: any) {
+  createAnnouncement() {
     const add = {
       title: this.addAnnouncementForm.value.title,
       description: this.addAnnouncementForm.value.description,
     }
 
-    this.announcementService.create(directorId, add).subscribe( (response) => {
-      console.log('announcement added');
+    this.announcementService.create(add).subscribe( (response) => {
+      // console.log('announcement added');
       this.resetForm();
-      this.getAllAnnouncements(directorId);
+      this.getAllAnnouncements(localStorage.getItem('userId'));
     })
   }
 
   deleteAnnouncement(id: any) {
     this.announcementService.delete(id).subscribe((response) => {
-      console.log('announcement deleted');
-      this.getAllAnnouncements(1);
+      // console.log('announcement deleted');
+      this.getAllAnnouncements(localStorage.getItem('userId'));
     })
   }
 
@@ -71,7 +71,6 @@ export class AnnouncementComponent implements OnInit {
     this.resetForm();
     this.addEdited = {}
   }
-
   updateAnnouncement() {
     const add = {
       title: this.addAnnouncementForm.value.title,
@@ -79,14 +78,14 @@ export class AnnouncementComponent implements OnInit {
     }
     this.announcementService.update(this.addEdited.id, add).subscribe( (response) => {
       console.log('announcement updated');
-      this.getAllAnnouncements(1);
+      this.getAllAnnouncements(localStorage.getItem('userId'));
       this.cancel()
     })
   }
 
   submitForm() {
     if(this.addAnnouncementForm.valid && !this.isUpdated) {
-      this.createAnnouncement(1)
+      this.createAnnouncement()
     } else {
       console.log('error')
     }

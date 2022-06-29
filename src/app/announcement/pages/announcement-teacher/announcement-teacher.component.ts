@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AnnouncementService} from "../../services/announcement.service";
+import { AnnouncementService } from "../../services/announcement.service";
 
 @Component({
   selector: 'app-announcement-teacher',
@@ -15,7 +15,7 @@ export class AnnouncementTeacherComponent implements OnInit {
     this.getAllAnnouncementsTeacher();
   }
   getAllAnnouncementsTeacher(){
-    return this.announcementTeacherService.getAllAnnouncements(1).subscribe((response: any)=>{
+    return this.announcementTeacherService.getAllAnnouncements(localStorage.getItem("directorId")).subscribe((response: any)=>{
       this.announcement = response;
     })
   }

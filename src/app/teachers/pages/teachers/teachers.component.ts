@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TeachersService} from "../../services/teachers.service";
+import { TeachersService } from "../../services/teachers.service";
 
 @Component({
   selector: 'app-teachers',
@@ -13,7 +13,7 @@ export class TeachersComponent implements OnInit {
   constructor(private TeachersService: TeachersService) { }
 
   ngOnInit(): void {
-    this.getAllTeachers(1);
+    this.getAllTeachers(localStorage.getItem("userId"));
   }
 
   getAllTeachers(directorId: any) {

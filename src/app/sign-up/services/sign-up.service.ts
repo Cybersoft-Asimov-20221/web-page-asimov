@@ -30,9 +30,9 @@ export class SignUpService {
   signUp(data: any) {
     let role = data.role === 'ROLE_TEACHER' ? 'teachers' : 'directors';
     let id = data.directorId;
-    console.log(role);
+    // console.log(role);
     if(role === 'teachers') {
-      console.log(data);
+      // console.log(data);
       return this.http.post(`${this.basePath}/${role}/auth/sign-up/${id}`, data, this.httpOptions)
         .pipe(
           retry(2),
